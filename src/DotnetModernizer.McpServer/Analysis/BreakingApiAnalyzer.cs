@@ -375,7 +375,8 @@ public static class BreakingApiAnalyzer
             apiName,
             rule.Severity,
             rule.Recommendation,
-            level));
+            level,
+            rule.FullName));
     }
 
     private static string TypeFullName(INamedTypeSymbol type)

@@ -12,13 +12,18 @@ public sealed record BreakingApiScanResult(
     string? Error = null);
 
 /// <summary>One use of an API that blocks or complicates migration to .NET 10.</summary>
+/// <param name="RuleFamily">
+/// FullName of the catalog rule that matched. Groups many findings into one migration
+/// problem: 40 uses of System.Web.Mvc types are all family "System.Web".
+/// </param>
 public sealed record BreakingApiFinding(
     string FilePath,
     int Line,
     string ApiName,
     string Severity,
     string Recommendation,
-    string DetectionLevel);
+    string DetectionLevel,
+    string RuleFamily);
 
 public sealed record BreakingApiSummary(
     int FilesScanned,
