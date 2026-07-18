@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "dotnet-modernizer": {
+      "type": "stdio",
+      "command": "dotnet",
+      "args": ["run", "--project", "src/DotnetModernizer.McpServer"],
+      "env": {}
+    }
+  }
+}
