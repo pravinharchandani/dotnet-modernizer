@@ -8,7 +8,7 @@ Prerequisites: [Claude Code](https://claude.com/claude-code), .NET 10 SDK.
 
 ```
 # 1. Add this repo as a marketplace and install the plugin
-/plugin marketplace add <your-github-owner>/dotnet-modernizer
+/plugin marketplace add pravinharchandani/dotnet-modernizer
 /plugin install dotnet-modernizer
 
 # 2. Run an assessment against your solution
