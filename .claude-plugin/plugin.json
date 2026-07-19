@@ -1,0 +1,24 @@
+{
+  "name": "dotnet-modernizer",
+  "displayName": "dotnet-modernizer",
+  "version": "0.1.0",
+  "description": "Analyzes legacy .NET Framework solutions and estimates migration effort to .NET 10. Ships a Roslyn-based MCP analysis server, a migration-analyst assessment agent, a codemod-writer fix agent, an /analyze-migration command, and write-guard/format hooks.",
+  "author": {
+    "name": "Pravin Harchandani",
+    "email": "pravin.harchandani@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": ["dotnet", "migration", "modernization", "roslyn", "net10", "mcp"],
+  "agents": [
+    "./agents/migration-analyst.md",
+    "./agents/codemod-writer.md"
+  ],
+  "mcpServers": {
+    "analyzer": {
+      "type": "stdio",
+      "command": "dotnet",
+      "args": ["run", "--project", "${CLAUDE_PLUGIN_ROOT}/src/DotnetModernizer.McpServer"],
+      "env": {}
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "dotnet-modernizer",
+  "description": "Marketplace for the dotnet-modernizer plugin: .NET Framework to .NET 10 migration analysis and codemod tooling for Claude Code.",
+  "owner": {
+    "name": "Pravin Harchandani",
+    "email": "pravin.harchandani@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "dotnet-modernizer",
+      "source": "./",
+      "description": "Analyzes legacy .NET Framework solutions and estimates migration effort to .NET 10. MCP analysis server + migration-analyst and codemod-writer agents + /analyze-migration command + guard/format hooks."
+    }
+  ]
+}

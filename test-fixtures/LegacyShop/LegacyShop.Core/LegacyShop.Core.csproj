@@ -37,6 +37,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <!-- Required for System.Text.Json on .NET Framework 4.7.2 (not part of the framework BCL).
+         Synchronous Stream overloads used in OrderSnapshotSerializer require package 6.0+. -->
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+    <!-- The dotnet CLI's MSBuild cannot resolve PackageReference assets for legacy
+         (non-SDK-style) projects; that logic ships only with Visual Studio's
+         Microsoft.NuGet.targets. The explicit HintPath below lets `dotnet build`
+         compile against the restored package. $(NuGetPackageRoot) is defined by the
+         restore-generated obj\*.nuget.g.props, so run `dotnet restore` first. -->
+    <Reference Include="System.Text.Json" Condition="Exists('$(NuGetPackageRoot)system.text.json\8.0.5\lib\net462\System.Text.Json.dll')">
+      <HintPath>$(NuGetPackageRoot)system.text.json\8.0.5\lib\net462\System.Text.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory" Condition="Exists('$(NuGetPackageRoot)system.memory\4.5.5\lib\net461\System.Memory.dll')">
+      <HintPath>$(NuGetPackageRoot)system.memory\4.5.5\lib\net461\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Order.cs" />
     <Compile Include="OrderSnapshotSerializer.cs" />
     <Compile Include="PricingCalculator.cs" />

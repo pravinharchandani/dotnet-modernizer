@@ -1,0 +1,32 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh",
+            "args": ["${CLAUDE_PROJECT_DIR}/hooks/guard-write-path.sh"],
+            "timeout": 10,
+            "statusMessage": "Checking write path..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh",
+            "args": ["${CLAUDE_PROJECT_DIR}/hooks/format-cs.sh"],
+            "timeout": 60,
+            "statusMessage": "Formatting C# file..."
+          }
+        ]
+      }
+    ]
+  }
+}

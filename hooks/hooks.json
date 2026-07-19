@@ -1,0 +1,33 @@
+{
+  "description": "dotnet-modernizer hooks: block writes outside the project root, format touched C# files",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/guard-write-path.sh"],
+            "timeout": 10,
+            "statusMessage": "Checking write path..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/format-cs.sh"],
+            "timeout": 60,
+            "statusMessage": "Formatting C# file..."
+          }
+        ]
+      }
+    ]
+  }
+}

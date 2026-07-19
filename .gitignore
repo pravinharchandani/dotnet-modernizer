@@ -62,3 +62,6 @@ Desktop.ini
 *.publishsettings
 appsettings.*.local.json
 secrets.json
+
+# Claude Code local settings (personal permission grants, machine-specific)
+.claude/settings.local.json
