@@ -57,7 +57,7 @@ public class BreakingApiAnalyzerTests : IDisposable
 
         Assert.Null(result.Error);
         BreakingApiFinding[] formatterFindings = result.Findings
-            .Where(f => Path.GetFileName(f.FilePath) == "OrderSnapshotSerializer.cs" &&
+            .Where(f => Path.GetFileName(f.FilePath) == "LegacyOrderArchiver.cs" &&
                         f.ApiName.Contains("BinaryFormatter"))
             .ToArray();
         Assert.NotEmpty(formatterFindings);
